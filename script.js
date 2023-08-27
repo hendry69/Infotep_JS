@@ -98,6 +98,12 @@ document.getElementById("btn-pago").addEventListener("click", function() {
     var montoCobrado = parseFloat(prompt("Ingrese el monto cobrado:"));
     var cambio = montoCobrado - totalCompra;
 
+    
+    if (montoCobrado < totalCompra) {
+        alert("¡Aquí faltan gente!");
+        return; 
+    }
+
     var mensaje = "Resumen de la Orden:\n\n";
     for (var i = 0; i < carrito.length; i++) {
         mensaje += carrito[i].nombre + " x " + carrito[i].cantidad + ": $" + (carrito[i].precio * carrito[i].cantidad).toFixed(2) + "\n";
